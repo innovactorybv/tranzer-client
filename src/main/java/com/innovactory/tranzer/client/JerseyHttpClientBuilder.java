@@ -16,7 +16,6 @@ public class JerseyHttpClientBuilder {
                 .basicAuthentication(username, password)
                 .enableJackson("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 .register(new LoggingFilter(new LogBridge(logger, api.getSimpleName() + baseUrl), true))
-                .enableApiLogging()
                 .register(new TranzerErrorResponseFilter());
         if (clientRequestFilter != null) {
             clientBuilder = clientBuilder.register(clientRequestFilter);
