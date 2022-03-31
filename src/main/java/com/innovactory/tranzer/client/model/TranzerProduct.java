@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.innovactory.tranzer.client.util.InstantDateTimeDeserializer;
+import com.innovactory.tranzer.client.util.InstantDateTimeSerializer;
+import org.joda.time.DateTime;
 
 import java.util.List;
 
@@ -40,10 +45,14 @@ public class TranzerProduct {
     private String currency;
 
     @JsonProperty("offer_start")
-    private String offerStart;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime offerStart;
 
     @JsonProperty("offer_end")
-    private String offerEnd;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime offerEnd;
 
     @JsonProperty("validity_fence")
     private TranzerValidityFence validityFence;
@@ -138,19 +147,19 @@ public class TranzerProduct {
         this.currency = currency;
     }
 
-    public String getOfferStart() {
+    public DateTime getOfferStart() {
         return offerStart;
     }
 
-    public void setOfferStart(String offerStart) {
+    public void setOfferStart(DateTime offerStart) {
         this.offerStart = offerStart;
     }
 
-    public String getOfferEnd() {
+    public DateTime getOfferEnd() {
         return offerEnd;
     }
 
-    public void setOfferEnd(String offerEnd) {
+    public void setOfferEnd(DateTime offerEnd) {
         this.offerEnd = offerEnd;
     }
 

@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.innovactory.tranzer.client.util.InstantDateTimeDeserializer;
+import com.innovactory.tranzer.client.util.InstantDateTimeSerializer;
+import org.joda.time.DateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE, creatorVisibility = JsonAutoDetect.Visibility.NONE )
@@ -29,10 +34,14 @@ public class TranzerTicket {
     private Integer dayTicketOffer;
 
     @JsonProperty("date_created")
-    private String dateCreated;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime dateCreated;
 
     @JsonProperty("purchased_datetime")
-    private String purchasedDatetime;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime purchasedDatetime;
 
     @JsonProperty("price")
     private Double price;
@@ -56,10 +65,14 @@ public class TranzerTicket {
     private Boolean showBeforeValid;
 
     @JsonProperty("validity_start")
-    private String validityStart;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime validityStart;
 
     @JsonProperty("validity_end")
-    private String validityEnd;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime validityEnd;
 
     @JsonProperty("barcode")
     private String barcode;
@@ -124,19 +137,19 @@ public class TranzerTicket {
         this.dayTicketOffer = dayTicketOffer;
     }
 
-    public String getDateCreated() {
+    public DateTime getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(String dateCreated) {
+    public void setDateCreated(DateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public String getPurchasedDatetime() {
+    public DateTime getPurchasedDatetime() {
         return purchasedDatetime;
     }
 
-    public void setPurchasedDatetime(String purchasedDatetime) {
+    public void setPurchasedDatetime(DateTime purchasedDatetime) {
         this.purchasedDatetime = purchasedDatetime;
     }
 
@@ -196,19 +209,19 @@ public class TranzerTicket {
         this.showBeforeValid = showBeforeValid;
     }
 
-    public String getValidityStart() {
+    public DateTime getValidityStart() {
         return validityStart;
     }
 
-    public void setValidityStart(String validityStart) {
+    public void setValidityStart(DateTime validityStart) {
         this.validityStart = validityStart;
     }
 
-    public String getValidityEnd() {
+    public DateTime getValidityEnd() {
         return validityEnd;
     }
 
-    public void setValidityEnd(String validityEnd) {
+    public void setValidityEnd(DateTime validityEnd) {
         this.validityEnd = validityEnd;
     }
 
