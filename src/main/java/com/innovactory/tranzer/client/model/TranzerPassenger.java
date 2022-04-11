@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.innovactory.tranzer.client.util.InstantDateTimeDeserializer;
+import com.innovactory.tranzer.client.util.InstantDateTimeSerializer;
+import org.joda.time.DateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE, creatorVisibility = JsonAutoDetect.Visibility.NONE )
@@ -17,7 +22,9 @@ public class TranzerPassenger {
     private String lastName;
 
     @JsonProperty("birth_date")
-    private String birthDate;
+    @JsonDeserialize(using = InstantDateTimeDeserializer.class)
+    @JsonSerialize(using = InstantDateTimeSerializer.class)
+    private DateTime birthDate;
 
     public String getFirstName() {
         return firstName;
@@ -35,11 +42,11 @@ public class TranzerPassenger {
         this.lastName = lastName;
     }
 
-    public String getBirthDate() {
+    public DateTime getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(DateTime birthDate) {
         this.birthDate = birthDate;
     }
 }
