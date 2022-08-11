@@ -7,8 +7,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Produces(TranzerVersionUtil.API_PRODUCES)
+@Consumes(TranzerVersionUtil.API_CONSUMES)
 public interface TranzerApi {
 
     @GET
