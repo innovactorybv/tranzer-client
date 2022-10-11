@@ -22,8 +22,8 @@
     <properties>
         <slf4j.version>1.7.5</slf4j.version>
         <logback.version>1.0.13</logback.version>
-        <jersey.client.version>1.10</jersey.client.version>
-        <jackson.version>2.5.4</jackson.version>
+        <jersey.client.version>1.14-SNAPSHOT</jersey.client.version>
+        <jackson.version>2.9.9</jackson.version>
     </properties>
 
     <dependencies>
