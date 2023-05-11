@@ -4,5 +4,6 @@ public enum TranzerModality {
     Tram,
     Bus,
     Metro,
-    Train
+    Train,
+    Ferry
 }
