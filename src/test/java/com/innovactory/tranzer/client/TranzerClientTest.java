@@ -44,7 +44,7 @@ public class TranzerClientTest {
     public List<TranzerProduct> listProducts() throws TranzerErrorResponse {
         List<TranzerProduct> productList = client.listProducts(LANGUAGE_ENGLISH);
         List<TranzerProduct> gvbProductList = productList.stream().filter(product -> product.getDayTicketChannel().equals("nl_gvb_day")).collect(Collectors.toList());
-        assertEquals(2, gvbProductList.size());
+        assertEquals(3, gvbProductList.size());
         return gvbProductList;
     }
 
