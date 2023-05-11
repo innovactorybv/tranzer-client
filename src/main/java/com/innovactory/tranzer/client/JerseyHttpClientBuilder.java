@@ -1,7 +1,7 @@
 package com.innovactory.tranzer.client;
 
 import com.innovactory.jersey.JerseyClientBuilder;
-import org.glassfish.jersey.logging.LoggingFeature;
+import org.glassfish.jersey.filter.LoggingFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ public class JerseyHttpClientBuilder {
                 .poolSize(connectionPoolSize)
                 .basicAuthentication(username, password)
                 .enableJackson("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                .register(new LoggingFeature(new LogBridge(logger, api.getSimpleName() + baseUrl)))
+                .register(new LoggingFilter(new LogBridge(logger, api.getSimpleName() + baseUrl), true))
                 .register(new TranzerErrorResponseFilter());
         if (clientRequestFilter != null) {
             clientBuilder = clientBuilder.register(clientRequestFilter);
