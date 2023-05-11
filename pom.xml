@@ -4,13 +4,13 @@
 
     <groupId>com.innovactory</groupId>
     <artifactId>tranzer-client</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
 
     <scm>
         <connection>scm:git:git@github.com:innovactorybv/tranzer-client.git</connection>
         <developerConnection>scm:git:git@github.com:innovactorybv/tranzer-client.git</developerConnection>
         <url>https://github.com/innovactorybv/tranzer-client/</url>
-        <tag>HEAD</tag>
+        <tag>tranzer-client-1.4</tag>
     </scm>
 
     <parent>
