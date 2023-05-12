@@ -15,6 +15,7 @@ public class JerseyHttpClientBuilder {
         JerseyClientBuilder clientBuilder = JerseyClientBuilder.newBuilder(baseUrl)
                 .poolSize(connectionPoolSize)
                 .basicAuthentication(username, password)
+                .enableApiLogging()
                 .enableJackson("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 .register(new LoggingFeature(new SLF4JLogAdapter(api.getSimpleName() + baseUrl, logger)))
                 .register(new TranzerErrorResponseFilter());
