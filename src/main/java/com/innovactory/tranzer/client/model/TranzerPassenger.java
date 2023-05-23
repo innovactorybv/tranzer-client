@@ -21,6 +21,9 @@ public class TranzerPassenger {
     @JsonProperty("last_name")
     private String lastName;
 
+    @JsonProperty("phone_number")
+    private String phoneNumber;
+
     @JsonProperty("birth_date")
     @JsonDeserialize(using = InstantDateTimeDeserializer.class)
     @JsonSerialize(using = InstantDateTimeSerializer.class)
@@ -48,5 +51,13 @@ public class TranzerPassenger {
 
     public void setBirthDate(DateTime birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
