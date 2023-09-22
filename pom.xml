@@ -4,7 +4,7 @@
 
     <groupId>com.innovactory</groupId>
     <artifactId>tranzer-client</artifactId>
-    <version>1.7-java11-SNAPSHOT</version>
+    <version>1.7-SNAPSHOT</version>
 
     <scm>
         <connection>scm:git:git@github.com:innovactorybv/tranzer-client.git</connection>
@@ -22,7 +22,7 @@
     <properties>
         <slf4j.version>1.7.5</slf4j.version>
         <logback.version>1.0.13</logback.version>
-        <jersey.client.version>1.19-java11</jersey.client.version>
+        <jersey.client.version>1.20</jersey.client.version>
         <jackson.version>2.12.7</jackson.version>
     </properties>
 
